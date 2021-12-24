@@ -34,8 +34,8 @@ export default function Profile() {
               <p>
                 {user.description}
               </p>
-              <img src={ user.image } alt="user" data-testid="profile-image" />
               <Link to="/profile/edit">Editar perfil</Link>
+              <img src={ user.image } alt="user" data-testid="profile-image" />
             </>
           )
       }

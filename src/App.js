@@ -57,10 +57,10 @@ class App extends React.Component {
         <Route
           exact
           path="/profile/edit"
-          render={ () => (
+          render={ (propsRouter) => (
             <>
               <Header />
-              <ProfileEdit />
+              <ProfileEdit { ...propsRouter } />
             </>) }
         />
         <Route
