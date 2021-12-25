@@ -1,7 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Button, Input } from 'reactstrap';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+
+const LoginStyled = styled.div`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15%;
+`;
+
+const FormStyled = styled.form`
+      display: flex;
+      background-color: #036b52;
+      height: 300px;
+      width: 500px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 5%;
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      Input {
+        width: 300px;
+      }
+
+      Button {
+        margin-top: 20px;
+        width: 300px;
+      }
+`;
 
 export default function Login({ history }) {
   const [userName, setUserName] = useState('');
@@ -17,33 +50,37 @@ export default function Login({ history }) {
   }, []);
 
   return (
-    <div data-testid="page-login">
+    <LoginStyled data-testid="page-login">
       {isLoading
         ? <Loading />
         : (
-          <>
-            <input
+          <FormStyled
+            onSubmit={ async (e) => {
+              e.preventDefault();
+              setIsLoading(true);
+              await createUser({ name: userName });
+              setIsLoading(false);
+              history.push('/search');
+            } }
+          >
+            <h1>TRYBETUNES</h1>
+            <Input
               type="text"
               data-testid="login-name-input"
               onChange={ handleInputName }
               value={ userName }
             />
-            <button
+            <Button
               disabled={ userName.length < minLength }
               type="submit"
               data-testid="login-submit-button"
-              onClick={ async () => {
-                setIsLoading(true);
-                await createUser({ name: userName });
-                setIsLoading(false);
-                history.push('/search');
-              } }
+              color="primary"
             >
               Entrar
-            </button>
-          </>
+            </Button>
+          </FormStyled>
         )}
-    </div>
+    </LoginStyled>
 
   );
 }
