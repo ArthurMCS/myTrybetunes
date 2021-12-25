@@ -1,9 +1,71 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { Button, Input } from 'reactstrap';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 
-export default function Search() {
+const SectionMusics = styled.section`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      & .musicCard:hover {
+        box-shadow: 0px 1px 5px 5px #2fc18c;
+        cursor: pointer;
+      }
+`;
+
+const MusicCard = styled.div`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 300px;
+      width: 300px;
+      background-color: #036b52;
+      margin: 30px;
+      border-radius: 20%;
+
+      img {
+        height: 150px;
+        width: 150px;
+        border: 5px solid black;
+        margin-bottom: 20px;
+      }
+
+      .link {
+        text-align: center;
+        font-size: 20px;
+        color: #111;
+      }
+`;
+
+const FormStyled = styled.form`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      Input {
+        margin-top: 50px;
+        width:500px;
+      }
+
+      Button {
+        margin-top: 15px;
+        width:500px;
+      }
+
+      h3 {
+        margin-top: 60px;
+        color: #fff;
+      }
+`;
+
+export default function Search({ history }) {
   const [search, setSearch] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [artists, setArtists] = useState([]);
@@ -13,25 +75,40 @@ export default function Search() {
 
   const handleInputSearch = ({ target }) => {
     setSearch(target.value);
-    setArtistName(target.value);
+  };
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    const response = await searchAlbumsAPI(search);
+    setSearch('');
+    setArtists(response);
+    setIsLoading(false);
   };
 
   const renderAlbuns = () => (
-    <section>
-      <p>{`Resultado de álbuns de: ${artistName}`}</p>
-      {
-        artists.map((artist, index) => (
-          <div key={ index }>
-            <Link
-              data-testid={ `link-to-album-${artist.collectionId}` }
-              to={ `/album/${artist.collectionId}` }
+    <section style={ { textAlign: 'center' } }>
+      <h3>{`Resultado de álbuns de: ${artistName}`}</h3>
+      <SectionMusics>
+        {
+          artists.map((artist, index) => (
+            <MusicCard
+              key={ index }
+              className="musicCard"
+              onClick={ () => history.push(`/album/${artist.collectionId}`) }
             >
-              {artist.collectionName}
-            </Link>
-            <img src={ artist.artworkUrl100 } alt={ artist.artistName } />
-          </div>
-        ))
-      }
+              <img src={ artist.artworkUrl100 } alt={ artist.artistName } />
+              <Link
+                data-testid={ `link-to-album-${artist.collectionId}` }
+                to={ `/album/${artist.collectionId}` }
+                style={ { textDecoration: 'none' } }
+                className="link"
+              >
+                <h4>{artist.collectionName}</h4>
+              </Link>
+            </MusicCard>
+          ))
+        }
+      </SectionMusics>
     </section>);
 
   return (
@@ -39,31 +116,32 @@ export default function Search() {
       {isLoading
         ? <Loading />
         : (
-          <>
-            <input
+          <FormStyled onSubmit={ handleSubmit }>
+            <Input
               type="text"
               data-testid="search-artist-input"
               value={ search }
               onChange={ handleInputSearch }
             />
-            <button
+            <Button
               disabled={ search.length < minLength }
               type="submit"
+              color="primary"
               data-testid="search-artist-button"
-              onClick={ async () => {
-                setIsLoading(true);
-                const response = await searchAlbumsAPI(search);
-                setSearch('');
-                setArtists(response);
-                setIsLoading(false);
-              } }
+              onClick={ () => setArtistName(search) }
             >
               Pesquisar
-            </button>
+            </Button>
             {artists.length === 0
-              ? 'Nenhum álbum foi encontrado'
+              ? <h3>Nenhum álbum foi encontrado</h3>
               : renderAlbuns()}
-          </>)}
+          </FormStyled>)}
     </div>
   );
 }
+
+Search.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};

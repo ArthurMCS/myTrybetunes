@@ -20,10 +20,10 @@ class App extends React.Component {
         />
         <Route
           path="/search"
-          render={ () => (
+          render={ (propsRouter) => (
             <>
               <Header />
-              <Search />
+              <Search { ...propsRouter } />
             </>
           ) }
         />
