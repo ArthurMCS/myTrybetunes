@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 // https://www.youtube.com/watch?v=zWmaohjrkRw&t=1111s
 const LoadingStyled = styled.div`
-      width: 50px;
-      height: 50px;
-      border: 10px solid green;
+      width: 80px;
+      height: 80px;
+      border: 15px solid green;
       border-top-color: transparent;
       border-radius: 50%;
-      margin: 0 auto;
       animation: loading 0.6s  linear infinite ;
+      margin-top: 50px;
 
   
       @keyframes loading { 
@@ -19,13 +20,36 @@ const LoadingStyled = styled.div`
       }
 `;
 
-export default class Loading extends Component {
-  render() {
-    return (
-      <div>
-        <LoadingStyled />
-        Carregando...
-      </div>
-    );
-  }
+const Container = styled.div`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      
+      .isMusicCard {
+        width: 30px;
+        height: 30px;
+        border: 8px solid green;
+        border-top-color: transparent;
+        border-radius: 50%;
+        margin-left: 450px;
+        margin-top: 15px;
+      }
+
+      p {
+        color: #111;
+      }
+`;
+
+export default function Loading({ isMusicCard }) {
+  return (
+    <Container>
+      <LoadingStyled className={ isMusicCard && 'isMusicCard' } />
+      {/* <p>Carregando...</p> */}
+    </Container>
+  );
 }
+
+Loading.propTypes = {
+  isMusicCard: PropTypes.bool.isRequired,
+}.isRequired;

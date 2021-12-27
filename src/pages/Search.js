@@ -77,7 +77,8 @@ export default function Search({ history }) {
     setSearch(target.value);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
     const response = await searchAlbumsAPI(search);
     setSearch('');
