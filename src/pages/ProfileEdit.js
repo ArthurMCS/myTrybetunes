@@ -1,7 +1,41 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Button, Input } from 'reactstrap';
 import { getUser, updateUser } from '../services/userAPI';
 import Loading from './Loading';
+
+const FormStyled = styled.form`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      Input {
+        width: 400px;
+        margin-bottom: 30px;
+      }
+
+      label {
+        font-size: 25px;
+        margin-top: 20px;
+        color: #fff;
+        margin-left: 10px;
+        margin-bottom: 5px;;
+      }
+
+      Button {
+        margin-top: 70px;
+        margin-bottom: 40px;
+        width: 400px;
+      }
+
+      .description { 
+        width: 400px;
+        height: 100px;
+      }
+`;
 
 export default function ProfileEdit({ history }) {
   const [newUserName, setNewUserName] = useState('');
@@ -45,31 +79,50 @@ export default function ProfileEdit({ history }) {
   return (
     <div data-testid="page-profile-edit">
       {isLoading ? <Loading /> : (
-        <form onSubmit={ handleSubmit }>
-          <input
+        <FormStyled onSubmit={ handleSubmit }>
+          <label htmlFor="input-name">
+            Nome
+          </label>
+          <Input
             type="text"
             value={ newUserName }
             onChange={ ({ target }) => setNewUserName(target.value) }
             data-testid="edit-input-name"
+            id="input-name"
+            maxLength="20"
           />
-          <input
+          <label htmlFor="input-email">
+            Email
+          </label>
+          <Input
             type="email"
             value={ newUserEmail }
             onChange={ ({ target }) => setNewUserEmail(target.value) }
             data-testid="edit-input-email"
+            id="input-email"
           />
-          <input
+          <label htmlFor="input-image">
+            URL da imagem
+          </label>
+          <Input
             type="text"
             value={ newUserImg }
             onChange={ ({ target }) => setNewUserImg(target.value) }
             data-testid="edit-input-image"
+            id="input-image"
           />
-          <textarea
+          <label htmlFor="input-description">
+            Descrição
+          </label>
+          <Input
+            className="description"
+            type="textarea"
             value={ newUserDescription }
             onChange={ ({ target }) => setNewUserDescription(target.value) }
             data-testid="edit-input-description"
+            id="input-description"
           />
-          <button
+          <Button
             type="submit"
             data-testid="edit-button-save"
             disabled={
@@ -79,10 +132,11 @@ export default function ProfileEdit({ history }) {
               || newUserImg.length === 0
               || newUserDescription.length === 0
             }
+            color="success"
           >
             Salvar
-          </button>
-        </form>
+          </Button>
+        </FormStyled>
       )}
     </div>
   );

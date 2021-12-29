@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUser } from '../services/userAPI';
 import Loading from '../pages/Loading';
+import imgDefault from '../images/img.png';
 
 const HeaderStyled = styled.header`
       display: flex;
       align-items: center;
       justify-content: space-around;
       background: #036b52;
-      height: 70px;
+      height: 100px;
 
       h2 {
         margin-top: 10px;
@@ -23,6 +24,21 @@ const HeaderStyled = styled.header`
         transition: all 0.6s ease;
       }
 
+      div {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+      }
+
+      img {
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+        margin-top: 5px;;
+      }
+
       .link:hover {
         color: #fff;
       }
@@ -31,11 +47,13 @@ const HeaderStyled = styled.header`
 export default function Header() {
   const [user, setUser] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [image, setImage] = useState('');
 
   const fetchUser = async () => {
     setIsLoading(true);
     const response = await getUser();
     setUser(response);
+    setImage(response.image);
     setIsLoading(false);
   };
 
@@ -76,7 +94,17 @@ export default function Header() {
                 Perfil
               </Link>
             </nav>
-            <h2 data-testid="header-user-name">{user.name}</h2>
+            <div>
+              <img
+                src={
+                  image === ''
+                    ? imgDefault
+                    : image
+                }
+                alt="profile"
+              />
+              <h2 data-testid="header-user-name">{user.name}</h2>
+            </div>
           </HeaderStyled>
         )}
     </header>

@@ -1,9 +1,54 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { Button } from 'reactstrap';
+import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
+import imgDefault from '../images/img.png';
 
-export default function Profile() {
+const FavoritesPage = styled.div`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+`;
+
+const ProfileDiv = styled.div`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 100px;;
+      width: 800px;
+      text-align: center;
+      word-wrap: break-word;
+
+      label {
+        font-size: 25px;
+        color: #2fc18c;
+      }
+
+      p {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: justify;
+      }
+
+      img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        margin-bottom: 30px;
+        border: 3px solid  #036b52;
+      }
+
+      Button {
+        margin-top: 50px;
+        margin-bottom: 50px;;
+      }
+
+`;
+
+export default function Profile({ history }) {
   const [user, setUser] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,26 +64,54 @@ export default function Profile() {
   }, []);
 
   return (
-    <div data-testid="page-profile">
+    <FavoritesPage data-testid="page-profile">
       {
         isLoading
           ? <Loading />
           : (
-            <>
-              <p>
-                {user.name}
-              </p>
-              <p>
-                {user.email}
-              </p>
-              <p>
-                {user.description}
-              </p>
-              <Link to="/profile/edit">Editar perfil</Link>
-              <img src={ user.image } alt="user" data-testid="profile-image" />
-            </>
+            <ProfileDiv>
+              <img
+                src={
+                  user.image === ''
+                    ? imgDefault
+                    : user.image
+                }
+                alt="user"
+                data-testid="profile-image"
+              />
+              <label htmlFor="userName">
+                Nome:
+                <p id="userName">
+                  {user.name}
+                </p>
+              </label>
+              <label htmlFor="userEmail">
+                E-mail:
+                <p id="userEmail">
+                  {user.email}
+                </p>
+              </label>
+              <label htmlFor="userDescription">
+                Descrição:
+                <p id="userDescription">
+                  {user.description}
+                </p>
+              </label>
+              <Button
+                onClick={ () => { history.push('/profile/edit'); } }
+                color="success"
+              >
+                Editar perfil
+              </Button>
+            </ProfileDiv>
           )
       }
-    </div>
+    </FavoritesPage>
   );
 }
+
+Profile.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};

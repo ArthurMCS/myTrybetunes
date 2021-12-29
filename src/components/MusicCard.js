@@ -20,6 +20,10 @@ const MusicCardStyled = styled.article`
         margin-top: 15px;;
       }
 
+      svg:hover {
+        cursor: pointer;
+      }
+
       input {
         display: none;
       }
