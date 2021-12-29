@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+p, h1 {
   color: #fff;
 }
 
