@@ -9,20 +9,26 @@ const HeaderStyled = styled.header`
       display: flex;
       align-items: center;
       justify-content: space-around;
-      background: #036b52;
+      background: #4B0082;
       height: 100px;
 
       h2 {
+        font-size: 50px; 
+        color: #fff;
+      }
+
+      h3 {
         margin-top: 10px;
-        font-size: 30px; 
+        color: #fff
       }
 
       .link {
-        color: black;
-        font-size: 30px;
-        margin-right: 20px;
+        color: #fff;
+        font-size: 35px;
+        margin-right: 80px;
         transition: all 0.6s ease;
       }
+
 
       div {
        display: flex;
@@ -40,7 +46,7 @@ const HeaderStyled = styled.header`
       }
 
       .link:hover {
-        color: #fff;
+        color: #1E90FF;
       }
 `;
 
@@ -103,7 +109,7 @@ export default function Header() {
                 }
                 alt="profile"
               />
-              <h2 data-testid="header-user-name">{user.name}</h2>
+              <h3 data-testid="header-user-name">{user.name}</h3>
             </div>
           </HeaderStyled>
         )}

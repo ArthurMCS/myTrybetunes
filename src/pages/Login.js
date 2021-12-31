@@ -14,7 +14,7 @@ const LoginStyled = styled.div`
 
 const FormStyled = styled.form`
       display: flex;
-      background-color: #036b52;
+      background-color: #4B0082;
       height: 300px;
       width: 500px;
       align-items: center;
@@ -69,6 +69,8 @@ export default function Login({ history }) {
               data-testid="login-name-input"
               onChange={ handleInputName }
               value={ userName }
+              placeholder="nome"
+              maxLength="15"
             />
             <Button
               disabled={ userName.length < minLength }

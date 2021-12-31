@@ -13,7 +13,7 @@ const SectionMusics = styled.section`
       flex-wrap: wrap;
 
       & .musicCard:hover {
-        box-shadow: 0px 1px 5px 5px #2fc18c;
+        box-shadow: 0px 1px 5px 5px #7B68EE;
         cursor: pointer;
       }
 `;
@@ -25,7 +25,7 @@ const MusicCard = styled.div`
       flex-direction: column;
       height: 300px;
       width: 300px;
-      background-color: #036b52;
+      background-color:  #4B0082;
       margin: 30px;
       border-radius: 20%;
 
@@ -55,8 +55,15 @@ const FormStyled = styled.form`
       }
 
       Button {
+        background-color: #7B68EE;
         margin-top: 15px;
         width:500px;
+        border: none;
+      }
+
+      Button:hover {
+        background-color: #4B0082;
+        border: none;
       }
 
       h3 {
@@ -127,7 +134,6 @@ export default function Search({ history }) {
             <Button
               disabled={ search.length < minLength }
               type="submit"
-              color="primary"
               data-testid="search-artist-button"
               onClick={ () => setArtistName(search) }
             >

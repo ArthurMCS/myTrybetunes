@@ -24,7 +24,7 @@ const ProfileDiv = styled.div`
 
       label {
         font-size: 25px;
-        color: #2fc18c;
+        color: #7B68EE;
       }
 
       p {
@@ -38,12 +38,19 @@ const ProfileDiv = styled.div`
         width: 200px;
         border-radius: 50%;
         margin-bottom: 30px;
-        border: 3px solid  #036b52;
+        border: 3px solid  #7B68EE;
       }
 
       Button {
+        border: none;
+        background-color: #7B68EE;
         margin-top: 50px;
         margin-bottom: 50px;;
+      }
+
+      Button:hover {
+        border: none;
+        background-color: #4B0082;
       }
 
 `;
@@ -99,7 +106,6 @@ export default function Profile({ history }) {
               </label>
               <Button
                 onClick={ () => { history.push('/profile/edit'); } }
-                color="success"
               >
                 Editar perfil
               </Button>

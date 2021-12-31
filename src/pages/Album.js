@@ -23,7 +23,7 @@ const AlbumStyled = styled.div`
         height: 200px;
         width: 200px;
         border-radius: 50%;
-        border: 8px solid #036b52;
+        border: 8px solid #4B0082;
         margin-bottom: 20px;
       }
 

@@ -44,7 +44,7 @@ const MusicCardStyled = styled.article`
       }
 
       audio::-webkit-media-controls-panel {
-                background-color: #2fc18c;
+                background-color: #7B68EE;
       }
 `;
 

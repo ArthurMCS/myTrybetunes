@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const LoadingStyled = styled.div`
       width: 80px;
       height: 80px;
-      border: 15px solid green;
+      border: 15px solid #4B0082;
       border-top-color: transparent;
       border-radius: 50%;
       animation: loading 0.6s  linear infinite ;
@@ -29,7 +29,7 @@ const Container = styled.div`
       .isMusicCard {
         width: 30px;
         height: 30px;
-        border: 8px solid green;
+        border: 8px solid #4B0082;
         border-top-color: transparent;
         border-radius: 50%;
         margin-left: 450px;

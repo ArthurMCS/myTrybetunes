@@ -26,15 +26,23 @@ const FormStyled = styled.form`
       }
 
       Button {
+        border: none;
+        background-color: #7B68EE;
         margin-top: 70px;
         margin-bottom: 40px;
         width: 400px;
+      }
+
+      Button:hover {
+        border: none;
+        background-color: #4B0082;
       }
 
       .description { 
         width: 400px;
         height: 100px;
       }
+
 `;
 
 export default function ProfileEdit({ history }) {
@@ -89,7 +97,7 @@ export default function ProfileEdit({ history }) {
             onChange={ ({ target }) => setNewUserName(target.value) }
             data-testid="edit-input-name"
             id="input-name"
-            maxLength="20"
+            maxLength="15"
           />
           <label htmlFor="input-email">
             Email
@@ -132,7 +140,6 @@ export default function ProfileEdit({ history }) {
               || newUserImg.length === 0
               || newUserDescription.length === 0
             }
-            color="success"
           >
             Salvar
           </Button>
