@@ -14,16 +14,16 @@ const HeaderStyled = styled.header`
 
       h2 {
         font-size: 50px; 
-        color: #fff;
+        color: black;
       }
 
       h3 {
         margin-top: 10px;
-        color: #fff
+        color: black;
       }
 
       .link {
-        color: #fff;
+        color: black;
         font-size: 35px;
         margin-right: 80px;
         transition: all 0.6s ease;
@@ -46,7 +46,7 @@ const HeaderStyled = styled.header`
       }
 
       .link:hover {
-        color: #1E90FF;
+        color: #fff;
       }
 `;
 

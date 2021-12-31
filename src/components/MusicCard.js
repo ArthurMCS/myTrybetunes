@@ -46,6 +46,7 @@ const MusicCardStyled = styled.article`
       audio::-webkit-media-controls-panel {
                 background-color: #7B68EE;
       }
+      
 `;
 
 export default function MusicCard({ track }) {

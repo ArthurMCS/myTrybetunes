@@ -11,7 +11,6 @@ const LoadingStyled = styled.div`
       border-radius: 50%;
       animation: loading 0.6s  linear infinite ;
       margin-top: 50px;
-
   
       @keyframes loading { 
         to { 
@@ -34,6 +33,12 @@ const Container = styled.div`
         border-radius: 50%;
         margin-left: 450px;
         margin-top: 15px;
+
+        @media (max-width: 800px) {
+           margin-left: 375px;
+           margin-top: 15px;
+        }
+
       }
 
       p {

@@ -129,6 +129,7 @@ export default function ProfileEdit({ history }) {
             onChange={ ({ target }) => setNewUserDescription(target.value) }
             data-testid="edit-input-description"
             id="input-description"
+            maxLength="100px"
           />
           <Button
             type="submit"

@@ -6,7 +6,7 @@ import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import imgDefault from '../images/img.png';
 
-const FavoritesPage = styled.div`
+const ProfilePage = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
@@ -71,7 +71,7 @@ export default function Profile({ history }) {
   }, []);
 
   return (
-    <FavoritesPage data-testid="page-profile">
+    <ProfilePage data-testid="page-profile">
       {
         isLoading
           ? <Loading />
@@ -112,7 +112,7 @@ export default function Profile({ history }) {
             </ProfileDiv>
           )
       }
-    </FavoritesPage>
+    </ProfilePage>
   );
 }
 
