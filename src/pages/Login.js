@@ -10,11 +10,23 @@ const LoginStyled = styled.div`
       align-items: center;
       justify-content: center;
       margin-top: 15%;
+      
+      @media (max-width: 800px) {
+      
+         form {
+           width: 350px;
+           margin-top: 20%;
+         }
+
+      }
 `;
 
 const FormStyled = styled.form`
       display: flex;
-      background-color: #4B0082;
+      background: rgb(63,94,251);
+      background: radial-gradient(circle, 
+        rgba(63,94,251,1) 0%, 
+        rgba(252,70,107,1) 100%);
       height: 300px;
       width: 500px;
       align-items: center;

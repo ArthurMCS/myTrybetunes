@@ -44,8 +44,12 @@ const MusicCardStyled = styled.article`
       }
 
       audio::-webkit-media-controls-panel {
-                background-color: #7B68EE;
+        background: rgb(63,94,251);
+        background: radial-gradient(circle, 
+          rgba(63,94,251,1) 0%, 
+          rgba(252,70,107,1) 100%);
       }
+      
 `;
 
 export default function MusicCard({ track }) {

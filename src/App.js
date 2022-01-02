@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Search from './pages/Search';
 import Album from './pages/Album';
@@ -12,7 +12,7 @@ import Header from './components/Header';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Route
           exact
           path="/"
@@ -67,7 +67,7 @@ class App extends React.Component {
           path="*"
           render={ () => <NotFound /> }
         />
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

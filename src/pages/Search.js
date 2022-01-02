@@ -25,7 +25,8 @@ const MusicCard = styled.div`
       flex-direction: column;
       height: 300px;
       width: 300px;
-      background-color:  #4B0082;
+      background: rgb(63,94,251);
+      background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
       margin: 30px;
       border-radius: 20%;
 
@@ -130,6 +131,7 @@ export default function Search({ history }) {
               data-testid="search-artist-input"
               value={ search }
               onChange={ handleInputSearch }
+              placeholder="música ou artista"
             />
             <Button
               disabled={ search.length < minLength }

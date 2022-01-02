@@ -6,12 +6,11 @@ import PropTypes from 'prop-types';
 const LoadingStyled = styled.div`
       width: 80px;
       height: 80px;
-      border: 15px solid #4B0082;
+      border: 15px solid #fc466b;
       border-top-color: transparent;
       border-radius: 50%;
       animation: loading 0.6s  linear infinite ;
       margin-top: 50px;
-
   
       @keyframes loading { 
         to { 
@@ -29,11 +28,17 @@ const Container = styled.div`
       .isMusicCard {
         width: 30px;
         height: 30px;
-        border: 8px solid #4B0082;
+        border: 8px solid #fc466b;
         border-top-color: transparent;
         border-radius: 50%;
         margin-left: 450px;
         margin-top: 15px;
+
+        @media (max-width: 800px) {
+           margin-left: 375px;
+           margin-top: 15px;
+        }
+
       }
 
       p {
