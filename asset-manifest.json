@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/my-trybetunes/static/css/main.fb739d72.chunk.css",
-    "main.js": "/my-trybetunes/static/js/main.fa3918c1.chunk.js",
-    "main.js.map": "/my-trybetunes/static/js/main.fa3918c1.chunk.js.map",
-    "runtime-main.js": "/my-trybetunes/static/js/runtime-main.4d5f1965.js",
-    "runtime-main.js.map": "/my-trybetunes/static/js/runtime-main.4d5f1965.js.map",
-    "static/css/2.0a9ec390.chunk.css": "/my-trybetunes/static/css/2.0a9ec390.chunk.css",
-    "static/js/2.586d2de6.chunk.js": "/my-trybetunes/static/js/2.586d2de6.chunk.js",
-    "static/js/2.586d2de6.chunk.js.map": "/my-trybetunes/static/js/2.586d2de6.chunk.js.map",
-    "index.html": "/my-trybetunes/index.html",
-    "static/css/2.0a9ec390.chunk.css.map": "/my-trybetunes/static/css/2.0a9ec390.chunk.css.map",
-    "static/css/main.fb739d72.chunk.css.map": "/my-trybetunes/static/css/main.fb739d72.chunk.css.map",
-    "static/js/2.586d2de6.chunk.js.LICENSE.txt": "/my-trybetunes/static/js/2.586d2de6.chunk.js.LICENSE.txt",
-    "static/media/img.3bbfa889.png": "/my-trybetunes/static/media/img.3bbfa889.png"
+    "main.css": "/myTrybetunes/static/css/main.fb739d72.chunk.css",
+    "main.js": "/myTrybetunes/static/js/main.fa3918c1.chunk.js",
+    "main.js.map": "/myTrybetunes/static/js/main.fa3918c1.chunk.js.map",
+    "runtime-main.js": "/myTrybetunes/static/js/runtime-main.0f8ab953.js",
+    "runtime-main.js.map": "/myTrybetunes/static/js/runtime-main.0f8ab953.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/myTrybetunes/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.a641f357.chunk.js": "/myTrybetunes/static/js/2.a641f357.chunk.js",
+    "static/js/2.a641f357.chunk.js.map": "/myTrybetunes/static/js/2.a641f357.chunk.js.map",
+    "index.html": "/myTrybetunes/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/myTrybetunes/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.fb739d72.chunk.css.map": "/myTrybetunes/static/css/main.fb739d72.chunk.css.map",
+    "static/js/2.a641f357.chunk.js.LICENSE.txt": "/myTrybetunes/static/js/2.a641f357.chunk.js.LICENSE.txt",
+    "static/media/img.3bbfa889.png": "/myTrybetunes/static/media/img.3bbfa889.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.4d5f1965.js",
+    "static/js/runtime-main.0f8ab953.js",
     "static/css/2.0a9ec390.chunk.css",
-    "static/js/2.586d2de6.chunk.js",
+    "static/js/2.a641f357.chunk.js",
     "static/css/main.fb739d72.chunk.css",
     "static/js/main.fa3918c1.chunk.js"
   ]
