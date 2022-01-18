@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUser } from '../services/userAPI';
-import Loading from '../pages/Loading';
+import Loading from './Loading';
 import imgDefault from '../images/img.png';
 
 const HeaderStyled = styled.header`
@@ -57,6 +57,28 @@ const HeaderStyled = styled.header`
       .link:hover {
         color: #fff;
       }
+
+      @media (max-width: 1000px) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 60px;
+        border-radius: 0px 0px 8px 8px;
+
+        nav {
+          display: none
+        }
+
+        h2 {
+          margin-top: 10px;
+          font-size: 30px;
+        }
+
+        div {
+          display: none;
+        }
+      }
 `;
 
 export default function Header() {
@@ -76,52 +98,60 @@ export default function Header() {
     fetchUser();
   }, []);
 
+  useEffect(() => () => {
+    setUser('');
+    setIsLoading(false);
+    setImage('');
+  }, []);
+
   return (
     <header data-testid="header-component">
-      {isLoading
-        ? <Loading />
-        : (
-          <HeaderStyled>
-            <h2>TrybeTunes</h2>
-            <nav>
-              <Link
-                data-testid="link-to-search"
-                to="/search"
-                style={ { textDecoration: 'none' } }
-                className="link"
-              >
-                Pesquisar
-              </Link>
-              <Link
-                data-testid="link-to-favorites"
-                to="/favorites"
-                style={ { textDecoration: 'none' } }
-                className="link"
-              >
-                Músicas Favoritas
-              </Link>
-              <Link
-                data-testid="link-to-profile"
-                to="/profile"
-                style={ { textDecoration: 'none' } }
-                className="link"
-              >
-                Perfil
-              </Link>
-            </nav>
-            <div>
-              <img
-                src={
-                  image === ''
-                    ? imgDefault
-                    : image
-                }
-                alt="profile"
-              />
-              <h3 data-testid="header-user-name">{user.name}</h3>
-            </div>
-          </HeaderStyled>
-        )}
+      <HeaderStyled>
+        <h2>TrybeTunes</h2>
+        <nav>
+          <Link
+            data-testid="link-to-search"
+            to="/search"
+            style={ { textDecoration: 'none' } }
+            className="link"
+          >
+            Pesquisar
+          </Link>
+          <Link
+            data-testid="link-to-favorites"
+            to="/favorites"
+            style={ { textDecoration: 'none' } }
+            className="link"
+          >
+            Músicas Favoritas
+          </Link>
+          <Link
+            data-testid="link-to-profile"
+            to="/profile"
+            style={ { textDecoration: 'none' } }
+            className="link"
+          >
+            Perfil
+          </Link>
+        </nav>
+        {
+          isLoading
+            ? <Loading isHeader />
+            : (
+              <div>
+                <img
+                  src={
+                    image === ''
+                      ? imgDefault
+                      : image
+                  }
+                  alt="profile"
+                />
+                <h3 data-testid="header-user-name">{user.name}</h3>
+              </div>
+            )
+        }
+      </HeaderStyled>
     </header>
   );
 }

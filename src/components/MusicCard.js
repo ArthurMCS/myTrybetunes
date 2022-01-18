@@ -2,20 +2,16 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import Loading from '../pages/Loading';
+import Loading from './Loading';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 const MusicCardStyled = styled.article`
       margin-bottom: 50px;;
   
-      label {
-        color: #111;
-        margin-left: 400px;
-      }
-
       svg {
         height: 30px;
         width: 30px;
+        margin-left: 400px;
         color: red;
         margin-top: 15px;;
       }
@@ -49,6 +45,30 @@ const MusicCardStyled = styled.article`
           rgba(63,94,251,1) 0%, 
           rgba(252,70,107,1) 100%);
       }
+
+      @media (max-width: 1000px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 360px;
+        margin-bottom: 65px;
+         
+        svg {
+          position: relative;
+          margin-left: 0px;
+          margin-top: 120px;
+        }
+
+        p {
+          font-size: 20px;
+          width: 320px;
+          overflow: hidden;
+          max-height: 80px;
+          margin-bottom: -30px;
+        }
+          
+        }
       
 `;
 
@@ -74,7 +94,7 @@ export default function MusicCard({ track }) {
       setIsLoading(true);
       await addSong(track);
     }
-    await getFavoriteSongs();
+    await fetchFavoriteMusics();
     setIsLoading(false);
   };
 
@@ -100,7 +120,6 @@ export default function MusicCard({ track }) {
             ? <Loading isMusicCard />
             : (
               <label htmlFor={ trackId }>
-                Favorita
                 {isChecked
                   ? <AiFillHeart />
                   : <AiOutlineHeart />}

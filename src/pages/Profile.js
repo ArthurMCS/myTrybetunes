@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
 import imgDefault from '../images/img.png';
+import Footer from '../components/Footer';
 
 const ProfilePage = styled.div`
       display: flex;
@@ -43,15 +44,50 @@ const ProfileDiv = styled.div`
       }
 
       Button {
+        width: 150px;
         border: none;
         background-color: #7B68EE;
         margin-top: 50px;
-        margin-bottom: 50px;;
+        margin-bottom: 20px;;
       }
 
       Button:hover {
         border: none;
         background-color: #4B0082;
+      }
+
+      .exitButton {
+          width: 150px;
+          margin-top: 15px;
+          margin-bottom: 80px;
+        }
+
+      @media (max-width: 1000px) {
+        margin-top: 50px;
+        p {
+        font-size: 25px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: justify;
+        max-width: 290px;
+        word-wrap: break-word
+        }
+
+        img {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        margin-bottom: 30px;
+        border: 3px solid  #7B68EE;
+        }
+
+        Button {
+        border: none;
+        background-color: #7B68EE;
+        margin-top: 30px;
+        margin-bottom: 0px;
+        }
+
       }
 
 `;
@@ -110,9 +146,16 @@ export default function Profile({ history }) {
               >
                 Editar perfil
               </Button>
+              <Button
+                className="exitButton"
+                onClick={ () => { history.push('/'); } }
+              >
+                Sair
+              </Button>
             </ProfileDiv>
           )
       }
+      <Footer />
     </ProfilePage>
   );
 }

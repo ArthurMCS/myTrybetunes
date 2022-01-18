@@ -24,6 +24,18 @@ const Container = styled.div`
       align-items: center;
       justify-content: center;
       flex-direction: column;
+
+      #isHeader {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50px;
+        height: 50px;
+        border: 8px solid rgba(63,94,251,1);
+        border-top-color: transparent;
+        border-radius: 50%;
+        margin-bottom: 50px
+      }
       
       .isMusicCard {
         width: 30px;
@@ -31,26 +43,25 @@ const Container = styled.div`
         border: 8px solid #fc466b;
         border-top-color: transparent;
         border-radius: 50%;
-        margin-left: 450px;
+        margin-left: 400px;
         margin-top: 15px;
 
-        @media (max-width: 800px) {
-           margin-left: 375px;
-           margin-top: 15px;
+        @media (max-width: 1000px) {
+           margin-left: 0px;
+           margin-top: 120px;
         }
 
       }
 
-      p {
-        color: #111;
-      }
 `;
 
-export default function Loading({ isMusicCard }) {
+export default function Loading({ isMusicCard, isHeader }) {
   return (
     <Container>
-      <LoadingStyled className={ isMusicCard && 'isMusicCard' } />
-      {/* <p>Carregando...</p> */}
+      <LoadingStyled
+        className={ isMusicCard && 'isMusicCard' }
+        id={ isHeader && 'isHeader' }
+      />
     </Container>
   );
 }

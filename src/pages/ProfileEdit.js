@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Button, Input } from 'reactstrap';
 import { getUser, updateUser } from '../services/userAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
+import Footer from '../components/Footer';
 
 const FormStyled = styled.form`
       display: flex;
@@ -41,6 +42,22 @@ const FormStyled = styled.form`
       .description { 
         width: 400px;
         height: 100px;
+      }
+
+      @media (max-width: 1000px) {
+        input {
+          width: 200px;
+        }
+
+        .description {
+          width: 200px;
+        }
+
+        button {
+          margin-top: 50px;
+          margin-bottom: 100px;
+          width: 200px;
+        }
       }
 
 `;
@@ -145,6 +162,7 @@ export default function ProfileEdit({ history }) {
           </Button>
         </FormStyled>
       )}
+      <Footer />
     </div>
   );
 }

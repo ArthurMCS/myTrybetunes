@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Button, Input } from 'reactstrap';
 import { createUser } from '../services/userAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
 
 const LoginStyled = styled.div`
       display: flex;
@@ -14,7 +14,8 @@ const LoginStyled = styled.div`
       @media (max-width: 800px) {
       
          form {
-           width: 350px;
+           height: 250px;
+           width: 300px;
            margin-top: 20%;
          }
 
@@ -46,6 +47,15 @@ const FormStyled = styled.form`
         margin-top: 20px;
         width: 300px;
       }
+
+      @media (max-width: 1000px) {
+        input {
+          width: 200px;
+        }
+
+        button {
+          width: 200px;
+        }
 `;
 
 export default function Login({ history }) {

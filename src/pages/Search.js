@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Button, Input } from 'reactstrap';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
+import Footer from '../components/Footer';
 
 const SectionMusics = styled.section`
       display: flex;
@@ -18,7 +19,7 @@ const SectionMusics = styled.section`
       }
 `;
 
-const MusicCard = styled.div`
+const AlbumCard = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
@@ -29,6 +30,7 @@ const MusicCard = styled.div`
       background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
       margin: 30px;
       border-radius: 20%;
+      overflow: hidden;
 
       img {
         height: 150px;
@@ -41,6 +43,12 @@ const MusicCard = styled.div`
         text-align: center;
         font-size: 20px;
         color: #111;
+      }
+
+      h4 {
+        width: 250px;;
+        word-wrap: break-word;
+        color: black;
       }
 `;
 
@@ -69,11 +77,35 @@ const FormStyled = styled.form`
 
       h3 {
         margin-top: 60px;
-        color: #fff;
+        background: -webkit-linear-gradient( rgba(252,70,107,1), rgba(63,94,251,1));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      @media (max-width: 1000px) {
+        input {
+          width: 200px;
+        }
+
+        button {
+          width: 200px;
+        }
+
+        h3 {
+          width: 300px;
+          display: block;
+          margin-right: auto;
+          margin-left: auto;
+          word-wrap: break-word;
+        }
+
+        .noAlbum {
+          text-align: center;
+        }
       }
 `;
 
-export default function Search({ history }) {
+export default function Search() {
   const [search, setSearch] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [artists, setArtists] = useState([]);
@@ -100,21 +132,21 @@ export default function Search({ history }) {
       <SectionMusics>
         {
           artists.map((artist, index) => (
-            <MusicCard
+            <Link
+              data-testid={ `link-to-album-${artist.collectionId}` }
+              to={ `/album/${artist.collectionId}` }
+              style={ { textDecoration: 'none' } }
+              className="link"
+              replace
               key={ index }
-              className="musicCard"
-              onClick={ () => history.push(`/album/${artist.collectionId}`) }
             >
-              <img src={ artist.artworkUrl100 } alt={ artist.artistName } />
-              <Link
-                data-testid={ `link-to-album-${artist.collectionId}` }
-                to={ `/album/${artist.collectionId}` }
-                style={ { textDecoration: 'none' } }
-                className="link"
+              <AlbumCard
+                className="musicCard"
               >
+                <img src={ artist.artworkUrl100 } alt={ artist.artistName } />
                 <h4>{artist.collectionName}</h4>
-              </Link>
-            </MusicCard>
+              </AlbumCard>
+            </Link>
           ))
         }
       </SectionMusics>
@@ -142,9 +174,10 @@ export default function Search({ history }) {
               Pesquisar
             </Button>
             {artists.length === 0
-              ? <h3>Nenhum álbum foi encontrado</h3>
+              ? <h3 className="noAlbum">Nenhum álbum foi encontrado</h3>
               : renderAlbuns()}
           </FormStyled>)}
+      <Footer />
     </div>
   );
 }
