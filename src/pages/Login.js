@@ -4,19 +4,32 @@ import styled from 'styled-components';
 import { Button, Input } from 'reactstrap';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import logoPng from '../images/LOGO_POSITIVA.png';
+
+const TrybeLogo = styled.div`
+      position: absolute;
+      width: 208px;
+      height: 158px;
+      top: 150px;
+      background: url(${logoPng});
+
+            
+      @media (max-width: 1000px) {
+           top: 50px;
+      }
+`;
 
 const LoginStyled = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 15%;
+      height: 100%;
+      width: 100%;
       
-      @media (max-width: 800px) {
-      
+      @media (max-width: 1000px) {
          form {
-           height: 250px;
+           height: 200px;
            width: 300px;
-           margin-top: 20%;
          }
 
       }
@@ -24,31 +37,34 @@ const LoginStyled = styled.div`
 
 const FormStyled = styled.form`
       display: flex;
-      background: rgb(63,94,251);
-      background: radial-gradient(circle, 
-        rgba(63,94,251,1) 0%, 
-        rgba(252,70,107,1) 100%);
-      height: 300px;
-      width: 500px;
+      position: absolute;
+      background: #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      width: 697px;
+      height: 314px;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      border-radius: 5%;
+      top: 353px;
 
       h1 {
         margin-bottom: 20px;
       }
 
       Input {
-        width: 300px;
+        width: 500px;
       }
 
       Button {
         margin-top: 20px;
-        width: 300px;
+        width: 500px;
       }
 
       @media (max-width: 1000px) {
+
+        top: 300px;
+
         input {
           width: 200px;
         }
@@ -56,6 +72,7 @@ const FormStyled = styled.form`
         button {
           width: 200px;
         }
+      }
 `;
 
 export default function Login({ history }) {
@@ -76,33 +93,35 @@ export default function Login({ history }) {
       {isLoading
         ? <Loading />
         : (
-          <FormStyled
-            onSubmit={ async (e) => {
-              e.preventDefault();
-              setIsLoading(true);
-              await createUser({ name: userName });
-              setIsLoading(false);
-              history.push('/search');
-            } }
-          >
-            <h1>TRYBETUNES</h1>
-            <Input
-              type="text"
-              data-testid="login-name-input"
-              onChange={ handleInputName }
-              value={ userName }
-              placeholder="nome"
-              maxLength="15"
-            />
-            <Button
-              disabled={ userName.length < minLength }
-              type="submit"
-              data-testid="login-submit-button"
-              color="primary"
+          <>
+            <TrybeLogo />
+            <FormStyled
+              onSubmit={ async (e) => {
+                e.preventDefault();
+                setIsLoading(true);
+                await createUser({ name: userName });
+                setIsLoading(false);
+                history.push('/search');
+              } }
             >
-              Entrar
-            </Button>
-          </FormStyled>
+              <Input
+                type="text"
+                data-testid="login-name-input"
+                onChange={ handleInputName }
+                value={ userName }
+                placeholder="Nome"
+                maxLength="15"
+              />
+              <Button
+                disabled={ userName.length < minLength }
+                type="submit"
+                data-testid="login-submit-button"
+                color="primary"
+              >
+                Entrar
+              </Button>
+            </FormStyled>
+          </>
         )}
     </LoginStyled>
 
