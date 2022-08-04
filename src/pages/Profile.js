@@ -18,14 +18,14 @@ const ProfileDiv = styled.div`
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      margin-top: 100px;;
+      margin-top: 150px;
       width: 800px;
       text-align: center;
       word-wrap: break-word;
 
       label {
         font-size: 25px;
-        color: #7B68EE;
+        color: #036B52;
       }
 
       p {
@@ -40,20 +40,20 @@ const ProfileDiv = styled.div`
         width: 200px;
         border-radius: 50%;
         margin-bottom: 30px;
-        border: 3px solid  #7B68EE;
+        border: 3px solid  #036B52;
       }
 
       Button {
         width: 150px;
         border: none;
-        background-color: #7B68EE;
+        background-color: #036B52;
         margin-top: 50px;
         margin-bottom: 20px;;
       }
 
       Button:hover {
         border: none;
-        background-color: #4B0082;
+        background-color: rgba(47, 193, 140, 1);
       }
 
       .exitButton {
@@ -78,12 +78,12 @@ const ProfileDiv = styled.div`
         width: 80px;
         border-radius: 50%;
         margin-bottom: 30px;
-        border: 3px solid  #7B68EE;
+        border: 3px solid  #036B56;
         }
 
         Button {
         border: none;
-        background-color: #7B68EE;
+        background-color: #036B56;
         margin-top: 30px;
         margin-bottom: 0px;
         }

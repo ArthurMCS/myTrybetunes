@@ -12,6 +12,7 @@ const FormStyled = styled.form`
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      margin-top: 150px;
 
       Input {
         width: 400px;
@@ -21,14 +22,14 @@ const FormStyled = styled.form`
       label {
         font-size: 25px;
         margin-top: 20px;
-        color: #fff;
+        color: #111;
         margin-left: 10px;
         margin-bottom: 5px;;
       }
 
       Button {
         border: none;
-        background-color: #7B68EE;
+        background-color: #036B52;
         margin-top: 70px;
         margin-bottom: 40px;
         width: 400px;
@@ -36,7 +37,7 @@ const FormStyled = styled.form`
 
       Button:hover {
         border: none;
-        background-color: #4B0082;
+        background-color: rgba(47, 193, 140, 1);
       }
 
       .description { 
