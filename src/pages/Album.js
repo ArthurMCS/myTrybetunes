@@ -35,6 +35,8 @@ const AlbumStyled = styled.div`
       }
 
       @media (max-width: 1000px) {
+        
+        margin-top: 0;
 
         h1 {
           text-align: center;
@@ -54,7 +56,7 @@ const AlbumStyled = styled.div`
         }
         
 
-        .album-name {
+        p {
           text-align: center;
           word-wrap: break-word;
           max-width: 300px;

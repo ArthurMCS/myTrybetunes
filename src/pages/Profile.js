@@ -81,7 +81,6 @@ const ProfileDiv = styled.div`
 
         Button {
         border: none;
-        background-color: #036B56;
         margin-top: 30px;
         margin-bottom: 0px;
         }

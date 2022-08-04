@@ -50,7 +50,7 @@ const MusicCardStyled = styled.article`
         justify-content: center;
         flex-direction: column;
         width: 360px;
-        margin-bottom: 65px;
+        margin-bottom: 10px;
          
         svg {
           position: relative;

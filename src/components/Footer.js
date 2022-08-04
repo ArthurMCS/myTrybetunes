@@ -15,13 +15,11 @@ const FooterStyled = styled.div`
              justify-content: space-around;
              width: 100%;
              height: 50px;
-             background: rgb(63,94,251);
-             background: radial-gradient(circle, rgba(63,94,251,1) 
-             0%, rgba(252,70,107,1) 100%);
+             background: #036B52;
              border-radius: 8px 8px 0px 0px;
 
              .link {
-                 color: black;
+                 color: #fff;
              }
 
              svg {

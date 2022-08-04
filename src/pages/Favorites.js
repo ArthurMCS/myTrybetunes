@@ -21,9 +21,7 @@ const PageFavorites = styled.div`
       .favoritesP {
         margin-top: 15px;
         font-size: 25px;
-        background: -webkit-linear-gradient( rgba(252,70,107,1), rgba(63,94,251,1));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #036B52;
       }
 `;
 

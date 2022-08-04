@@ -8,6 +8,10 @@ const Loading = styled.span`
       right: 115px;
       top: 30px;
       text-align: center;
+
+      @media (max-width: 1000px) {
+          display: none;
+      }
 `;
 
 export default function HeaderLoding() {

@@ -11,6 +11,10 @@ const LoadingStyled = styled.div`
       border-radius: 50%;
       animation: loading 0.6s  linear infinite;
       margin-top: 300px;
+
+      @media (max-width: 1000px) {
+          margin-top: 100px;
+      }
   
       @keyframes loading { 
         to { 

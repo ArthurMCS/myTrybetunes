@@ -9,14 +9,15 @@ import HeaderLoding from './HeaderLoding';
 const TrybeLogo = styled.div`
       position: absolute;
       width: 117px;
-      height: 96px;
+      height: 76px;
       left: 50px;
       top: -8px;
       background: url(${logoPng});
 
             
       @media (max-width: 1000px) {
-          left: 100px;
+          left: 125px;
+          top: -15px;
       }
 `;
 
@@ -27,8 +28,16 @@ const HeaderStyled = styled.header`
       background: #023031;
       box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
 
+      @media (max-width: 1000px){
+          background: #036B52;
+          border-radius: 0px 0px 8px 8px;
+      }
+
       div {
         height: 100px;
+        @media (max-width: 1000px) {
+          height: 78px;
+        }
       }
 
       nav {
