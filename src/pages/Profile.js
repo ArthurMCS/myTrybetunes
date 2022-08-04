@@ -46,14 +46,12 @@ const ProfileDiv = styled.div`
       Button {
         width: 150px;
         border: none;
-        background-color: #036B52;
         margin-top: 50px;
         margin-bottom: 20px;;
       }
 
       Button:hover {
         border: none;
-        background-color: rgba(47, 193, 140, 1);
       }
 
       .exitButton {
@@ -143,12 +141,14 @@ export default function Profile({ history }) {
               </label>
               <Button
                 onClick={ () => { history.push('/profile/edit'); } }
+                color="primary"
               >
                 Editar perfil
               </Button>
               <Button
                 className="exitButton"
                 onClick={ () => { history.push('/'); } }
+                color="primary"
               >
                 Sair
               </Button>

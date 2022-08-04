@@ -29,7 +29,6 @@ const FormStyled = styled.form`
 
       Button {
         border: none;
-        background-color: #036B52;
         margin-top: 70px;
         margin-bottom: 40px;
         width: 400px;
@@ -37,7 +36,6 @@ const FormStyled = styled.form`
 
       Button:hover {
         border: none;
-        background-color: rgba(47, 193, 140, 1);
       }
 
       .description { 
@@ -158,6 +156,7 @@ export default function ProfileEdit({ history }) {
               || newUserImg.length === 0
               || newUserDescription.length === 0
             }
+            color="primary"
           >
             Salvar
           </Button>
