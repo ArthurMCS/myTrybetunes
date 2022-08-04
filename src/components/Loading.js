@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 const LoadingStyled = styled.div`
       width: 80px;
       height: 80px;
-      border: 15px solid #fc466b;
+      border: 15px solid #036B52;
       border-top-color: transparent;
       border-radius: 50%;
-      animation: loading 0.6s  linear infinite ;
-      margin-top: 50px;
+      animation: loading 0.6s  linear infinite;
+      margin-top: 300px;
   
       @keyframes loading { 
         to { 
@@ -25,18 +25,6 @@ const Container = styled.div`
       justify-content: center;
       flex-direction: column;
 
-      #isHeader {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50px;
-        height: 50px;
-        border: 8px solid rgba(63,94,251,1);
-        border-top-color: transparent;
-        border-radius: 50%;
-        margin-bottom: 50px
-      }
-      
       .isMusicCard {
         width: 30px;
         height: 30px;
@@ -44,7 +32,7 @@ const Container = styled.div`
         border-top-color: transparent;
         border-radius: 50%;
         margin-left: 400px;
-        margin-top: 15px;
+        margin-top: 10px;
 
         @media (max-width: 1000px) {
            margin-left: 0px;

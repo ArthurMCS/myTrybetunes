@@ -13,7 +13,7 @@ const MusicCardStyled = styled.article`
         width: 30px;
         margin-left: 400px;
         color: red;
-        margin-top: 15px;;
+        margin-top: 10px;
       }
 
       svg:hover {
@@ -37,13 +37,11 @@ const MusicCardStyled = styled.article`
       p {
         margin-top: 30px;
         margin-bottom: 30px;
+        font-size: 20px;
       }
 
       audio::-webkit-media-controls-panel {
-        background: rgb(63,94,251);
-        background: radial-gradient(circle, 
-          rgba(63,94,251,1) 0%, 
-          rgba(252,70,107,1) 100%);
+        background: rgba(47, 193, 140, 1);
       }
 
       @media (max-width: 1000px) {
@@ -66,6 +64,7 @@ const MusicCardStyled = styled.article`
           overflow: hidden;
           max-height: 80px;
           margin-bottom: -30px;
+          font-size: 17px;
         }
           
         }

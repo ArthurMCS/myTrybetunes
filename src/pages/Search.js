@@ -7,36 +7,47 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
 import Footer from '../components/Footer';
 
+const SectionSearch = styled.div`
+      margin-top: 100px;
+      text-align: center;
+
+      @media (max-width: 1000px) {
+          margin-top: 20px;
+      }
+`;
+
 const SectionMusics = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 15px;
 
       & .musicCard:hover {
-        box-shadow: 0px 1px 5px 5px #7B68EE;
+        box-shadow: 0px 1px 5px 5px rgba(47, 193, 140, 1);
         cursor: pointer;
       }
 `;
 
 const AlbumCard = styled.div`
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
       flex-direction: column;
-      height: 300px;
-      width: 300px;
-      background: rgb(63,94,251);
-      background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+      padding: 0px 0px 16px;
+      gap: 16px;
+      width: 290px;
+      height: 320px;
       margin: 30px;
-      border-radius: 20%;
       overflow: hidden;
+      background: #fff;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.06), 
+      0px 1px 3px rgba(0, 0, 0, 0.1);
 
       img {
-        height: 150px;
-        width: 150px;
-        border: 5px solid black;
-        margin-bottom: 20px;
+        height: 180px;
+        width: 290px;
+        left: calc(50% - 290px/2);
+        top: calc(50% - 180px/2 - 70px);
       }
 
       .link {
@@ -45,11 +56,16 @@ const AlbumCard = styled.div`
         color: #111;
       }
 
-      h4 {
-        width: 250px;;
+      h4, h5 {
+        max-width: 250px;
         word-wrap: break-word;
         color: black;
+        font-size: 16px;
+        weight: bold;
+        margin-left: 15px;
       }
+
+      h5 { font-size: 12px; }
 `;
 
 const FormStyled = styled.form`
@@ -64,22 +80,15 @@ const FormStyled = styled.form`
       }
 
       Button {
-        background-color: #7B68EE;
         margin-top: 15px;
-        width:500px;
+        width: 500px;
         border: none;
       }
 
-      Button:hover {
-        background-color: #4B0082;
-        border: none;
-      }
 
       h3 {
         margin-top: 60px;
-        background: -webkit-linear-gradient( rgba(252,70,107,1), rgba(63,94,251,1));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #111;
       }
 
       @media (max-width: 1000px) {
@@ -127,7 +136,7 @@ export default function Search() {
   };
 
   const renderAlbuns = () => (
-    <section style={ { textAlign: 'center' } }>
+    <>
       <h3>{`Resultado de álbuns de: ${artistName}`}</h3>
       <SectionMusics>
         {
@@ -145,15 +154,17 @@ export default function Search() {
               >
                 <img src={ artist.artworkUrl100 } alt={ artist.artistName } />
                 <h4>{artist.collectionName}</h4>
+                <h5>{artist.artistName}</h5>
               </AlbumCard>
             </Link>
           ))
         }
       </SectionMusics>
-    </section>);
+    </>
+  );
 
   return (
-    <div data-testid="page-search">
+    <SectionSearch data-testid="page-search">
       {isLoading
         ? <Loading />
         : (
@@ -170,6 +181,7 @@ export default function Search() {
               type="submit"
               data-testid="search-artist-button"
               onClick={ () => setArtistName(search) }
+              color="primary"
             >
               Pesquisar
             </Button>
@@ -178,7 +190,7 @@ export default function Search() {
               : renderAlbuns()}
           </FormStyled>)}
       <Footer />
-    </div>
+    </SectionSearch>
   );
 }
 

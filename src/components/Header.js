@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
 import imgDefault from '../images/img.png';
 import logoPng from '../images/smallLogo.png';
+import HeaderLoding from './HeaderLoding';
 
 const TrybeLogo = styled.div`
       position: absolute;
@@ -16,7 +16,7 @@ const TrybeLogo = styled.div`
 
             
       @media (max-width: 1000px) {
-          display: none;
+          left: 100px;
       }
 `;
 
@@ -41,6 +41,10 @@ const HeaderStyled = styled.header`
         height: 80px;
         top: 100px;
 
+        @media (max-width: 1000px) {
+           display: none;
+        }
+
         a {
             display: flex;
             align-items: center;
@@ -64,6 +68,7 @@ const HeaderStyled = styled.header`
       }
 
       .user-container {
+        display: flex;
         position: absolute;
         width: 250px;
         height: 41.65px;
@@ -74,7 +79,12 @@ const HeaderStyled = styled.header`
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 50px;
 
+        @media (max-width: 1000px) {
+           display: none;
+        }
+
         span {
+          min-width: 150px;
           position: absolute;
           top: 8px;
           left: 58px;
@@ -118,25 +128,23 @@ export default function Header() {
     <HeaderStyled data-testid="header-component">
       <div>
         <TrybeLogo />
-        <div className="user-container">
-          {
-            isLoading
-              ? <Loading isHeader />
-              : (
-                <div>
-                  <img
-                    src={
-                      image === ''
-                        ? imgDefault
-                        : image
-                    }
-                    alt="profile"
-                  />
-                  <span data-testid="header-user-name">{user.name}</span>
-                </div>
-              )
-          }
-        </div>
+        {
+          isLoading
+            ? <HeaderLoding />
+            : (
+              <div className="user-container">
+                <img
+                  src={
+                    image === ''
+                      ? imgDefault
+                      : image
+                  }
+                  alt="profile"
+                />
+                <span data-testid="header-user-name">{user.name}</span>
+              </div>
+            )
+        }
       </div>
       <nav>
         <Link

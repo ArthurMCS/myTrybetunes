@@ -12,11 +12,11 @@ const AlbumStyled = styled.div`
       justify-content: center;
       flex-direction: column;
       text-align: center;
+      margin-top: 100px;
 
       h2 {
         margin-top: 200px;
         text-align: center;
-        color: rgb(63,94,251)
       }
 
 
@@ -30,8 +30,7 @@ const AlbumStyled = styled.div`
         margin-top: 50px;
         height: 200px;
         width: 200px;
-        border-radius: 50%;
-        border: 8px solid rgb(63,94,251);
+        border: 8px solid #036B52;
         margin-bottom: 20px;
       }
 
@@ -42,16 +41,16 @@ const AlbumStyled = styled.div`
           max-width: 300px;
           word-wrap: break-word;
           overflow: hidden;
-          color: rgb(63,94,251);
+          color: #111;
+          font-size: 20px;
         }
 
         h2 {
           margin-top: 200px;
           text-align: center;
           max-width: 300px;
-          font-size: 20px;
+          font-size: 18px;
           word-wrap: break-word;
-          color: rgb(63,94,251);
         }
         
 
@@ -59,7 +58,7 @@ const AlbumStyled = styled.div`
           text-align: center;
           word-wrap: break-word;
           max-width: 300px;
-          color: rgb(63,94,251);
+          font-size: 18px;
         }
 
       }
