@@ -7,17 +7,16 @@ import logoPng from '../images/smallLogo.png';
 import HeaderLoding from './HeaderLoding';
 
 const TrybeLogo = styled.div`
-      position: absolute;
       width: 117px;
       height: 76px;
-      left: 50px;
-      top: -8px;
+      margin-left: 50px;
       background: url(${logoPng});
 
             
       @media (max-width: 1000px) {
-          left: 125px;
-          top: -15px;
+        display: block;
+        margin: 0 auto;
+        margin-top: -15px;
       }
 `;
 
@@ -36,7 +35,7 @@ const HeaderStyled = styled.header`
       div {
         height: 100px;
         @media (max-width: 1000px) {
-          height: 78px;
+          height: 80px;
         }
       }
 
@@ -160,7 +159,6 @@ export default function Header() {
           data-testid="link-to-search"
           to="/search"
           style={ { textDecoration: 'none' } }
-          className="link"
         >
           Pesquisar
         </Link>
@@ -168,7 +166,6 @@ export default function Header() {
           data-testid="link-to-favorites"
           to="/favorites"
           style={ { textDecoration: 'none' } }
-          className="link"
         >
           Músicas Favoritas
         </Link>
@@ -176,7 +173,6 @@ export default function Header() {
           data-testid="link-to-profile"
           to="/profile"
           style={ { textDecoration: 'none' } }
-          className="link"
         >
           Perfil
         </Link>
