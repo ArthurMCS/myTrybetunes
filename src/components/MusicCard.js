@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-spacing */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -5,7 +6,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import Loading from './Loading';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
-const MusicCardStyled = styled.article`
+const MusicCardStyled = styled.div`
       margin-bottom: 50px;;
   
       svg {
@@ -110,7 +111,7 @@ export default function MusicCard({ track }) {
     <MusicCardStyled>
       <p>{trackName}</p>
       <div>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+        <audio data-testid="audio-component" src={previewUrl} controls>
           <track kind="captions" />
           <code>audio</code>
         </audio>
@@ -118,16 +119,16 @@ export default function MusicCard({ track }) {
           isLoading
             ? <Loading isMusicCard />
             : (
-              <label htmlFor={ trackId }>
+              <label htmlFor={trackId}>
                 {isChecked
                   ? <AiFillHeart />
                   : <AiOutlineHeart />}
                 <input
-                  checked={ isChecked }
-                  data-testid={ `checkbox-music-${trackId}` }
+                  checked={isChecked}
+                  data-testid={`checkbox-music-${trackId}`}
                   type="checkbox"
-                  id={ trackId }
-                  onChange={ handleInputCheck }
+                  id={trackId}
+                  onChange={handleInputCheck}
                 />
               </label>
             )
